@@ -1,0 +1,85 @@
+{% extends 'userpanel/loggedhome/logbase.html' %}
+{% block content %}
+
+	{% load static %}
+	
+
+<!-- payment page-->
+	<div class="privacy">
+		<div class="container">
+			<!-- tittle heading -->
+			<h3 class="tittle-w3l">Net Banking
+				<span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+			</h3>
+			<!-- //tittle heading -->
+			<div class="checkout-right">
+				<!--Horizontal Tab-->
+				<div id="parentHorizontalTab">
+					<ul class="resp-tabs-list hor_1">
+						<li>Credit/Debit</li>
+						{% comment %} <li style="display:none;">Generate Token (Virtual Queue)</li> {% endcomment %}
+						{% comment %} <li>Net Banking</li>
+						<li>Paypal Account</li> {% endcomment %}
+					</ul>
+					<div class="resp-tabs-container hor_1">
+
+						
+						<div>
+
+						<!-- Form -Card Details ////////////////////-->
+							<form method="POST" action="#" class="creditly-card-form agileinfo_form">
+							{% csrf_token %}
+								<div class="creditly-wrapper wthree, w3_agileits_wrapper">
+									<div class="credit-card-wrapper">
+										<div class="first-row form-group">
+											<div class="controls">
+												<label class="control-label">Name on Card</label>
+												<input class="billing-address-name form-control" type="text" name="name" placeholder="John Smith">
+											</div>
+											<div class="w3_agileits_card_number_grids">
+												<div class="w3_agileits_card_number_grid_left">
+													<div class="controls">
+														<label class="control-label">Card Number</label>
+														<input class="number credit-card-number form-control" type="text" name="number" inputmode="numeric" autocomplete="cc-number"
+														    autocompletetype="cc-number" x-autocompletetype="cc-number" placeholder="&#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149; &#149;&#149;&#149;&#149;">
+													</div>
+												</div>
+												<div class="w3_agileits_card_number_grid_right">
+													<div class="controls">
+														<label class="control-label">CVV</label>
+														<input class="security-code form-control" Â· inputmode="numeric" type="text" name="securitycode" placeholder="&#149;&#149;&#149;">
+													</div>
+												</div>
+												<div class="clear"> </div>
+											</div>
+											<div class="controls">
+												<label class="control-label">Expiration Date</label>
+												<input class="expiration-month-and-year form-control" type="text" name="expiration" placeholder="MM / YY">
+											</div>
+										</div>
+										<button class="submit">
+											<span>Make a payment </span>
+										</button>
+									</div>
+								</div>
+							</form>
+
+						</div> 
+
+
+						
+						
+
+					</div>
+				</div>
+				<!--Plug-in Initialisation-->
+			</div>
+		</div>
+	</div>
+<!-- //payment page -->
+
+{% endblock %}

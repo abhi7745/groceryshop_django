@@ -1,0 +1,110 @@
+ {% extends 'userpanel/signupbase.html' %}
+ {% block content %}
+
+<!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:;">Grocery Shop</a>
+          </div>
+          
+        </div>
+      </nav>
+<!-- End Navbar -->
+
+
+<div class="content">
+        <div class="container-fluid">
+
+          
+          <div class="row">
+              <div class="col-md-9">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Sign Up 
+                    <span style="color:black;">{{checknull}}</span> 
+                    <span style="color:black;">{{checkuser}}</span>
+                    </h4>
+                    {% comment %} <p class="card-category">Complete your profile</p> {% endcomment %}
+                  </div>
+                  <div class="card-body">
+                  
+                    <form method="POST" action="#" >
+						          {% csrf_token %}
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                                <label>User Name</label>
+                                <input type="text" class="form-control" name="name">
+                          </div>
+                        </div>
+                        
+                        
+
+                       <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Address</label>
+                            <input type="text" class="form-control" name="address">
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="row" style="margin-top:20px;">
+                        <div class="col-md-6" >
+                         <div class="form-group" >
+                            <label class="label">Phone Number</label>
+                            <input type="text" class="form-control" name="phone">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="label">Pincode</label>
+                            <input type="text" class="form-control" name="pincode">
+                          </div>
+                        </div>
+
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Email</label>
+                            <input type="text" class="form-control" name="email">
+                          </div>
+                        </div>
+
+                        <div class="col-md-6" >
+                         <div class="form-group">
+                            <label class="label">Password</label>
+                            <input type="Password" class="form-control" name="password">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="label">Confirm Password</label>
+                            <input type="Password" class="form-control" name='confirm_psd'>
+                          </div>
+                        </div>
+
+                        
+                        
+
+
+
+                      </div>
+                      {% comment %} //text box end/// {% endcomment %}
+                      <button type="submit" class="btn btn-primary pull-right">Submit</button>
+
+                      <a href="/homepage/" class="btn btn-success pull-right">Back</a>
+
+                      <div class="clearfix"></div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+             
+           
+
+            </div>
+          </div>
+        </div>
+
+{% endblock %}

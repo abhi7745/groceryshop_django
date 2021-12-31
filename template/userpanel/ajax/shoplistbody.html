@@ -1,0 +1,33 @@
+ {% for x in shoplist %}
+    <!-- ///////////////// one start //////////// -->
+    <div class="mycontainer">
+
+        <div class='banner-img' style="background-image: url({{ x.s_coverphoto.url }});">
+
+            <!-- cover photo image -->
+
+        </div>
+
+        <!-- //////////////// profile dp ////////////////////// -->
+
+        <img src='{{ x.s_profilepic.url}}' alt='profile image' class="profile-img">
+
+		{% comment %} <img src='http://127.0.0.1:8000/media/profilepic/pic2.jpg' alt='profile image' class="profile-img"> {% endcomment %}
+        
+		<!-- //////////////// profile dp end ////////////////////// -->
+
+        <h1 class="name">{{ x.s_shopname }}</h1>
+        <p class="description">{{ x.s_address }}</p>
+		<p class="description">{{ x.s_phone }}</p>
+
+		<p class="description">{{ x.s_id }}</p>
+        
+		<form method="GET" action="{% url 'productlist_url' x.s_id %}">
+   		{% csrf_token %}
+		<button class='btn'>Go To Shop</button>
+		</form>
+
+        </div>
+
+        <!-- ///////////////// one end //////////// -->
+	{% endfor %}

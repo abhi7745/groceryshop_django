@@ -1,0 +1,121 @@
+ {% extends 'userpanel/loggedhome/edituserprofilebase.html' %}
+ {% block content %}
+
+<!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:;">Grocery Shop</a>
+          </div>
+          
+        </div>
+      </nav>
+<!-- End Navbar -->
+
+
+<div class="content">
+        <div class="container-fluid">
+
+          
+          <div class="row">
+              <div class="col-md-9">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Edit Profile   <!--Edit user profile-->
+                    <span style="color:black;">{{checknull}}</span> 
+                    <span style="color:black;">{{checkuser}}</span>
+                    </h4>
+                    {% comment %} <p class="card-category">Complete your profile</p> {% endcomment %}
+                  </div>
+                  <div class="card-body">
+                  
+                    <form method="POST" action="{% url 'update_url'  %}" 
+                    onsubmit="return confirm('Are Tou Sure want To Edit Your Account')" >
+						          {% csrf_token %}
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                               <input type="text" class="form-control" name="db_id" value="{{ profile.user_id_id }}"><!--getting database id (user_reg table)--> 
+                                <label>User Name</label>  
+                                <input type="text" class="form-control" name="name" value="{{ profile.u_name}}"> <!--user_reg table-->
+                          </div>
+                        </div>
+                        
+                        
+
+                       <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Address</label>
+                            <input type="text" class="form-control" name="address" value="{{ profile.u_address}}"><!--user_reg table-->
+                          </div>
+                        </div>
+                        
+                      </div>
+                      <div class="row" style="margin-top:20px;">
+                        <div class="col-md-6" >
+                         <div class="form-group" >
+                            <label class="label">Phone Number</label>
+                            <input type="text" class="form-control" name="phone" value="{{ profile.u_phone}}"><!--user_reg table-->
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="label">Pincode</label>
+                            <input type="text" class="form-control" name="pincode" value="{{ profile.u_pincode}}"><!--user_reg table-->
+                          </div>
+                        </div>
+
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Email</label>
+                            <input type="text" class="form-control" name="email" value="{{ profile_login_tbl.username}}"><!-- auth_user table (login table)-->
+                          </div>
+                        </div>
+
+                        <div class="col-md-6" >
+                         <div class="form-group">
+                            <label class="label">Password</label>
+                            <input type="text" class="form-control" name="password" value="{{ profile_login_tbl.password}}"><!-- auth_user table (login table)-->
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="label">Confirm Password</label>
+                            <input type="text" class="form-control" name='confirm_psd' value="{{ profile_login_tbl.password}}">
+                          </div>
+                        </div>
+
+                        
+                        
+
+
+
+                      </div>
+                      {% comment %} //text box end/// {% endcomment %}
+                      <button type="submit" class="btn btn-primary pull-right">Edit</button>
+
+                      <a href="{% url 'delete_url' profile.user_id_id %}" class="btn btn-danger pull-right"
+                      onclick="javascript:return confirm('Are You Sure want To Delete Your Account');">
+                      Delete</a>
+
+                      <a href="/login/" class="btn btn-sucess pull-right">Back</a>
+                      {% comment %} <div> <a href="{% url 'homepage_url' %}" style="color:black;float:right;border:1px solid black;">Delete</a></div> {% endcomment %}
+                      
+                      
+
+                      <div class="clearfix"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+             
+           
+
+            </div>
+          </div>
+        </div>
+
+        
+
+{% endblock %}

@@ -1,0 +1,234 @@
+ {% extends 'userpanel/signupbase.html' %}
+ {% block content %}
+
+<!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="navbar-brand" href="javascript:;">Grocery Shop </a>
+          </div>
+         
+        </div>
+      </nav>
+<!-- End Navbar -->
+
+
+<div class="content" >
+        <div class="container-fluid" >
+
+
+          <div class="row">
+              <div class="col-md-9">
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Sign Up As A Vendor</h4>
+                    {% comment %} <p class="card-category">Complete your profile</p> {% endcomment %}
+                  </div>
+                  <div class="card-body">
+                    <form method="POST" action="{% url 'signupvendor_url' %}" enctype="multipart/form-data">
+						          {% csrf_token %}
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Full Name</label>
+                            <input type="text" class="form-control" name="sname" >
+                          </div>
+                        </div>
+                        
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Shop Name</label>
+                            <input type="text" class="form-control" name="shopname">
+                          </div>
+                        </div>
+
+                        
+
+                        
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Shop Address</label>
+                            <input type="text" class="form-control" name="shopaddress">
+                          </div>
+                        </div>
+
+                         <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Shop Location</label>
+                            <input type="text" class="form-control" name="shoplocation">
+                          </div>
+                        </div>
+
+
+                      </div>
+                     
+
+                      
+                      <div class="row">
+                      <div class="col-md-6" style="padding-top:17px;">
+                      {% comment %} <div class="form-group"> {% endcomment %}
+                        <label class="bmd-label-floating">Cover Photo</label>
+                          <input class="form-control" type="file" name="coverphoto" id="" required="">
+                        
+                          {% comment %} </div> {% endcomment %}
+                          </div>
+                      <div class="col-md-6" style="padding-left:100px">
+                      <div class="form-group">
+
+                        <img src="https://image.shutterstock.com/image-photo/madrid-spain-october-25-2015-260nw-385477516.jpg" alt="invalid" height="70px" width="70px">
+                      
+                      </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="col-md-6" style="padding-top:17px;">
+                      {% comment %} <div class="form-group"> {% endcomment %}
+                        <label class="bmd-label-floating">Profile Picture</label>
+                          <input  class="form-control" type="file" name="profilepicture" id="" required="">
+                        
+                                  {% comment %} </div> {% endcomment %}
+                          </div>
+                      <div class="col-md-6" style="padding-left:100px">
+                      <div class="form-group">
+
+                        <img src="https://www.filmibeat.com/img/popcorn/profile_photos/dharmajan-bolgatty-20190624143621-28086.jpg" alt="invalid" height="70px" width="70px">
+                      
+                      </div>
+                      </div>
+                      </div>
+
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Phone Number</label>
+                            <input type="text" class="form-control" name="sphone">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Aadhaar Number</label>
+                            <input type="text" class="form-control" name="aadhaar">
+                          </div>
+                        </div>
+                      </div>
+                      
+
+                        <div class="row">
+                          <div class="col-md-6" style="padding-top:15px;">
+                            {% comment %} <div class="form-group"> {% endcomment %}
+                              <label class="bmd-label-floating">ID Proof (Upload Scanned Copy)</label>
+                              <input type="file" class="form-control" name="idproof">
+                            {% comment %} </div> {% endcomment %}
+                          </div>
+
+                          <div class="col-md-6" style="padding-left:100px">
+                      <div class="form-group">
+
+                        <img src="https://aadharcardinfo.files.wordpress.com/2018/08/aadhar-card-sample-picture.jpg?w=660" alt="invalid" height="70px" width="100px">
+                      
+                      </div>
+                      </div>
+                        
+                        
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            {% comment %} <label class="bmd-label-floating">GSTIN Number</label> {% endcomment %}
+                            <input type="text" class="form-control" name="gst" placeholder="GSTIN Number">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            {% comment %} <label class="bmd-label-floating">Pin Code</label> {% endcomment %}
+                            <input type="text" class="form-control" name="spincode" placeholder="Pin Code">
+                          </div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            {% comment %} <label class="bmd-label-floating">state</label> {% endcomment %}
+                            {% comment %} <input type="text" class="form-control"> {% endcomment %}
+                            <select name="state" id="state" class="form-control" 
+                            onchange="populate(this.id,'district')">
+                              <option value="" selected disabled=true >Select State</option>
+                              <option value="Kerala">Kerala</option>
+                              <option value="Tamilnadu">Tamilnadu</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            {% comment %} <label class="bmd-label-floating">District</label>
+                            <input type="text" class="form-control"> {% endcomment %}
+                            <select name="district" id="district" class="form-control" onclick="populateTaluk(this.id,'taluk')">
+                               <option value=" selected disabled">Select District</option>
+                              {% comment %} <option value="Kottayam">Kottayam</option>
+                              <option value="Ernakulam">Ernakulam</option>
+                              <option value="Idukki">Idukki</option>
+                              <option value="Alappuzha">Alappuzha</option>  {% endcomment %}
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="form-group">
+                            {% comment %} <label class="bmd-label-floating">Taluk</label>
+                            <input type="text" class="form-control"> {% endcomment %}
+                            <select name="taluk" id="taluk" class="form-control">
+                              <option value="" selected disabled>Select Taluk</option>
+                              {% comment %} <option value="Kottayam">Kottayam</option>
+                              <option value="Meenachil">Meenachil</option>
+                              <option value="Vaikom">Vaikom</option> {% endcomment %}
+                            </select>
+                          </div>
+                        </div>
+
+
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Email Id</label>
+                            <input type="text" class="form-control" name="semail">
+                          </div>
+                        </div>
+                         <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Password</label>
+                            <input type="password" class="form-control" name="spassword">
+                          </div>
+                        </div>
+
+                         <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Confirm Password</label>
+                            <input type="password" class="form-control">
+                          </div>
+                        </div>
+
+                        
+
+
+
+                      </div>
+                      {% comment %} //text box end/// {% endcomment %}
+                      <button type="submit" class="btn btn-primary pull-right">Submit</button>
+
+                      <a href="/homepage/" class="btn btn-success pull-right">Back</a>
+                      <div class="clearfix"></div>
+                    </>
+                  </div>
+                </div>
+              </div>
+
+               
+
+           
+
+            </div>
+          </div>
+        </div>
+
+{% endblock %}
